@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            background-color: red;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            margin: 0;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            transition: background-color 1s;
+        }
+        p {
+            margin: 20px;
+            font-size: 24px;
+            text-align: center;
+        }
+        button {
+            background-color: pink;
+            color: white;
+            border: none;
+            padding: 20px;
+            margin: 10px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background-color 0.5s;
+        }
+        button:hover {
+            background-color: #ff69b4;
+        }
+        #unclickable {
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <p>Libera a 🌸 esse fim de semana?</p>
+    <button id="clickable" onclick="showMessage()">Sim</button>
+    <button id="unclickable">Não</button>
+    <script>
+        function showMessage() {
+            document.body.style.backgroundColor = 'pink';
+            document.body.innerHTML = '<p>Obrigado! O seu namorado agradece muito e fica super feliz!</p>';
+        }
+        document.getElementById('unclickable').addEventListener('mouseover', function(e) {
+            var maxX = window.innerWidth - e.target.offsetWidth;
+            var maxY = window.innerHeight - e.target.offsetHeight;
+            e.target.style.left = Math.floor(Math.random() * maxX) + 'px';
+            e.target.style.top = Math.floor(Math.random() * maxY) + 'px';
+        });
+    </script>
+</body>
+</html>
